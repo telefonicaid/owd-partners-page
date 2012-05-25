@@ -47,6 +47,7 @@
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
               <li><a href="./hosting.html">Hosting</a></li>
+              <li><a href="./appmanifest.html">App manifest</a></li>
               <li><a href="./offline.html">Offline</a></li>
               <li><a href="./html5.html">Technologies</a></li>
               <li><a href="./storage.html">Storage</a></li>
@@ -64,24 +65,44 @@
       <div class="hero-unit">
         <!-- FIXME -->
         <img style="float:right; display:none;" src="../assets/img/html5-display.png">
-        <h1>Welcome!</h1>
+        <h1>HTML5 apps, oh my!</h1>
         <p>This are basic guidelines for HTML5 apps, to take all the advantages of the new technologies built in modern browsers and other mobiles that uses the Boot2Gecko (B2G) platform.</p>
-        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+        <p><a class="btn btn-primary btn-large" data-toggle="learnmoremodal" id="learnmoremodal" href="#myLearnmore">Learn more &raquo;</a></p>
+        <!-- The main modal dialog -->
+        <div class="modal hide fade" id="myLearnmore">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal">×</button>
+            <h3>This guide...</h3>
+          </div>
+          <div class="modal-body">
+            <p>wants to help you as a developer to create awesome HTML5 apps that can compete with traditional native applications that you can find in other devices, both mobile and desktop. We think that HTML5 apps are the future, because HTML is standard and it's everywhere. Do you have a phone? HTML then you have, little padawan. An iPad? Yup. A desktop computer? You are served. And devices with internet access will be more powerful and common in the future. Are you thinkg about your fridge connected to the internet? And an app to check what do you need to buy? Let's leave that to the web app!</p>
+            <p>Possibilities are endless. And you as a developer must push the web technologies to that limit. And the limit is the sky, and web technology developers will increase the heigth of thesky!</p>
+            <p>Have fun!</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#" id="closeModalButton" class="btn btn-primary">Great, thanks!</a>
+          </div>
+        </div> <!-- End of main modal dialog -->
       </div>
 
       <!-- Example row of columns -->
       <div class="row">
-        <div class="span4">
+        <div class="span3">
           <h2>Hosting</h2>
            <p>Do you know how should you host and serve your files? There are plenty of tips that you can know of, and secure your service, configure your Apache and even make cakes!</p>
           <p><a class="btn" href="./hosting.html">View details &raquo;</a></p>
         </div>
-        <div class="span4">
+        <div class="span3">
           <h2>Offline</h2>
            <p>HTML5 apps can work offline! Without plugins! Your users won't have a permanent connection to the network but you will want them to use your app. Using built-in techniques from HTML5 you are able to create amazing things. Even lower the bandwitdh used in your hosting!</p>
           <p><a class="btn" href="./offline.html">View details &raquo;</a></p>
         </div>
-        <div class="span4">
+        <div class="span3">
+          <h2>Webapp manifest</h2>
+           <p>Your page is an app. But to do that, you need to use some things inside your webpage to convert it to real native HTML apps. But don't worry, just check this page to solve all your questions.</p>
+          <p><a class="btn" href="./webappmanifest.html">View details &raquo;</a></p>
+        </div>
+        <div class="span3">
           <h2>Technologies</h2>
            <p>HTML5 is awesome. There are so great technologies behind the so-called-HTML5 that you can use to build incredible apps that can compete with traditional apps, both for mobile and desktop, but in a single programming sprint!</p>
           <p><a class="btn" href="./technologies.html">View details &raquo;</a></p>
@@ -117,6 +138,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/main.js"></script>
     <script src="../assets/js/bootstrap-transition.js"></script>
     <script src="../assets/js/bootstrap-alert.js"></script>
     <script src="../assets/js/bootstrap-modal.js"></script>
