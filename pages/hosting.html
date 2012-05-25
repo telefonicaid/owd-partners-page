@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HTML5 apps, best practises</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Best practises for HTML5 apps">
+  <meta name="author" content="Guillermo López (gll@tid.es), Telefónica I+D">
+
+  <!-- Le styles -->
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../assets/css/docs.css" rel="stylesheet">
+  <style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+  </style>
+  <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <!-- Le fav and touch icons -->
+      <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    </head>
+
+    <body>
+
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">HTML5 apps guidelines</a>
+            <div class="nav-collapse">
+              <ul class="nav">
+                <li><a href="./index.html">Home</a></li>
+                <li class="active"><a href="#">Hosting</a></li>
+                <li><a href="./offline.html">Offline</a></li>
+                <li><a href="./html5.html">Technologies</a></li>
+                <li><a href="./storage.html">Storage</a></li>
+                <li><a href="./owd-device.html">OWD</a></li>
+                <li><a href="./example.html">Boilerplate</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+      <!-- Masthead
+      ================================================== -->
+      <header class="jumbotron subhead" id="overview">
+        <h1>Serving apps</h1>
+        <p class="lead">You need to host and serve your own apps! Check here how to do that!</p>
+        <div class="subnav">
+          <ul class="nav nav-pills">
+            <li class=""><a href="#domain">Domain</a></li>
+            <li class=""><a href="#hosting">Hosting</a></li>
+          </ul>
+        </div>
+      </header>
+
+
+<!-- Domain
+  ================================================== -->
+  <section id="domain">
+    <div class="page-header">
+      <h1>Domain <small>for hosting your apps</small></h1>
+    </div>
+    <div class="row">
+      <div class="span6">
+        <h2>Requires a separate domain</h2>
+        <p>Apps <b>MUST</b> have different domains (subdomains) for each app. You can not share the same domain/subdomain between apps. You can host your first app in <code>https://app1.mydomain.org/</code> and the second one in <code>https://app2.mydomain.org/</code>.</p>
+      </div><!-- /.span -->
+      <div class="span6">
+        <h2>Use SSL</h2>
+        <p>Using <strong>SSL</strong> is not expensive this days. Well, it's expensive if you buy those highpriced certs from the internet, but it's not more expensive por CPU-bound. And, if you choose to use SSL, you are proving great things to your app and you really love your users. There are plenty of benefits such as:</p>
+        <ul>
+          <li>Users are more protected from sniffing</li>
+          <li>You provide an extra feature to your app</li>
+        </ul>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+  </section>
+
+<!-- Hosting
+  ================================================== -->
+  <section id="hosting">
+    <div class="page-header">
+      <h1>Hosting <small>and how to serve correctly the files</small></h1>
+    </div>
+    <div class="row">
+      <div class="span4">
+        <h2>Correct mimetype</h2>
+        <p>You need to serve your files correctly in order to use cool characteristics only allowed in HTML5 apps. It's recommended to serve your files as UTF-8 (and to save those files to that charset):</p>
+        <ul>
+          <li>In Apache: edit your <code>httpd.conf</code> file and add the directive <code>AddDefaultCharset utf-8</code></li>
+          <li>If you are using Nginx, edit your <code>http</code> directives in <code>nginx.conf</code> adding <code>charset utf-8;</code></li>
+        </ul>
+      </div>
+      <div class="span4">
+        <h2>Application Cache <code>(manifest.appcache)</code></h2>
+        <p>You <b>MUST</b> serve your WebApp manifest file always with this in mind:</p>
+        <ul>
+          <li>It's a good practise to expire your manifest file, so your users won't have old versions of your app. So add this code (Apache example): <code>ExpiresByType text/cache-manifest "access plus 0 seconds"</code></li>
+          <li>Your <code>manifest.appcache</code> should be served with the mimetype <code>text/cache-manifest</code></li>
+        </ul>
+      </div>
+      <div class="span4">
+        <h2>webapp manifest</h2>
+        <p>BLAH BLAH</p>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <footer>
+    <p>&copy; Telefónica I+D 2012</p>
+  </footer>
+
+</div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+  </html>
