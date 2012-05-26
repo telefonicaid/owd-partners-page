@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML5 apps, best practises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Best practises for HTML5 apps">
+    <meta name="author" content="Guillermo López (gll@tid.es), Telefónica I+D">
+
+    <!-- Le styles -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">HTML5 apps guidelines</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./hosting.html">Hosting</a></li>
+              <li class="active"><a href="./appmanifest.html">App manifest</a></li>
+              <li><a href="./offline.html">Offline</a></li>
+              <li><a href="./html5.html">Technologies</a></li>
+              <li><a href="./storage.html">Storage</a></li>
+              <li><a href="./owd-device.html">OWD</a></li>
+              <li><a href="./example.html">Boilerplate</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+			<!-- Main header -->
+			<header class="jumbotron subhead" id="overview">
+        <h1>The application manifest</h1>
+        <p class="lead">The little file that will help users and apps stores to know about your application.</p>        
+      </header>
+			<!-- end main header -->
+			
+			<!-- Intro -->
+			<section id="intro">
+				<div class="row">
+					<div class="span6">		        
+						<header>
+							<h2>What's the manifest?</h2>
+						</header>
+		        <p>The manifest is a JSON file that will describe your application. This can help users and app stores to understand your application, your needs and requisites, and will allow the browser or <strong>B2G</strong> to interact with the application.</p>
+						<p>This manifest is one of the key components of the <a hfref="https://developer.mozilla.org/en/Apps">Open Web Apps</a> initiative and will be needed if you want to perform actions like install into a browser or <strong>B2G</strong>.</p>
+		      </div>
+		      <div class="span6">
+						<header>
+		        	<h2>I've seen this before</h2>
+						</header>
+		        <p>This app manifest is familiar to me, it looks like a bit of W3C Widgets, Google Chrome extensions or even the cache manifest. Is the same?</p>
+						<p>No, it's not, it's close to them, but Mozilla is working to create a <b>standard</b> for web applications.</p>
+		      </div>
+		    </div>
+			</section>
+			
+			<!-- Simple example of an app manifest -->
+			<section id="example">
+				<header>
+					<h2>Let's take a quick look to an app manifest:</h2>
+				</header>
+				<div class="row">
+					<div class="span12">						
+						<pre>
+{
+  "version": "1.0",
+  "name": "Awesome App",
+  "description": "My incredible Open Web Application!",
+  "icons": {
+    "16": "/img/icon-16.png",
+    "48": "/img/icon-48.png",
+    "128": "/img/icon-128.png"
+  },
+  "developer": {
+    "name": "tid",
+    "url": "http://tid.es"
+  },
+  "installs_allowed_from": [
+    "https://myapp.tid.es"
+  ],
+  "locales": {
+    "es": {
+      "description": "¡Acción abierta emocionante del desarrollo del Web!",
+      "developer": {
+        "url": "http://tid.es/"
+      }
+    },
+    "it": {
+      "description": "Azione aperta emozionante di sviluppo di fotoricettore!",
+      "developer": {
+        "url": "http://tid.es/it"
+      }
+    }
+  },
+  "default_locale": "en"
+}
+						</pre>						
+					</div>
+					<div class="span12">
+						<p>As you can see the fields are almost self explanatory, but again, let's take a deep look and list the elements that you can find in the manifest as well as their meaning:</p>
+						<dl>
+							<dt>name</dt>
+							<dd>A human-readable name for the app (maximum length is 128 characters).</dd>
+							<dt>description</dt>
+							<dd>A human-readable description of the app (maximum length is 1024 characters).</dd>
+							<dt>launch_path</dt>
+							<dd>(optional) The path within the app's origin that is loaded when the app starts. If not provided, the app's origin is treated as the launch URL.</dd>
+							<dt>icons</dt>
+							<dd>(optional) A map of icon sizes to paths (which must be absolute paths). Each must contain square images that visually represent the app.</dd>
+							<dt>developer</dt>
+							<dd>(optional) Information about the developer of the app, suitable for use in repository and dashboard UIs:
+								<dl>
+									<dt>name<dt>
+									<dd>The name of the developer.<dd>
+									<dt>url<dt>
+									<dd>The URL of a site containing more information about the app's developer. This URL is typically rendered when the user clicks on the name of the app's developer while viewing details about an app inside the dashboard (or browser).<dd>
+								</dl>
+							</dd>
+							<dt>locales</dt>
+							<dd>(optional) A map of locale-specific overrides of the data contained in the manifest, which UIs use to provide localized views. Each locale entry is keyed on a locale tag and contains a sparse representation of the manifest. Any field that is present in the locale value overrides the matching field in the manifest. Certain fields cannot be overridden, including default_locale, locales itself and installs_allowed_from. A manifest that overrides any of these fields is invalid. When locales is present, default_locale must also be present.</dd>
+							<dt>default_locale</dt>
+							<dd>(required when locales is present) The locale tag for the "default" translation of manifest properties. That is, the locale of values not included in the locales map.</dd>
+							<dt>install_allowed_from</dt>
+							<dd>(optional) An array of origins that are allowed to trigger installation of this app. This field allows you to explicitly delegate installation privileges to sites or stores with whom you have a relationship. This field must be respected by the app repository (eventually, the user agent). The array ["*"] means that installations of this app are allowed from any site. This is the default.</dd>
+							<dt>version</dt>
+							<dd>(optional) A string that represents the version of the manifest. The repository does not use this value in any way, but you can embed this string into the manifest and extract it to help deal with various update cases. See the section on updating below.</dd>
+							<dt>screen_size</dt>
+							<dd><b>(future release)</b> (optional) An object that can contain min_height and min_width properties, which describe the minimum height and width in pixels that the application needs in order to render correctly. Interpretation of these values is left up to the runtime or the app store.</dd>
+							<dt>required_features</dt>
+							<dd><b>(future release)</b> (optional) An array that consists of a set of values that describes the mandatory features the app needs in order to run correctly. A full list of valid values is TBD.</dd>
+							<dt>orientation</dt>
+							<dd><b>(future release)</b> (optional) Defines the orientation at which the application will initially start. Can be one of "portrait", "landscape", "portrait-secondary" or "landscape-secondary". The options suffixed with "-secondary" imply a 180 degree rotation from the options without the suffix. For instance, holding the phone upside down (but still in a manner where width is less than height), implies the "portrait-secondary" orientation. If this field has a valid value, the runtime will not change the orientation of the view rendering the application even if the device is turned.</dd>
+							<dt>fullscreen</dt>
+							<dd><b>(future release)</b> (optional) Set this to "true" or "false" to indicate whether the runtime should launch the app in full-screen mode.</dd>
+							<dt>permissions</dt>
+							<dd><b>(future release)</b> (optional) Array of strings with the permissions that the application requires to execute. It could include location, local storage, etc.</dd>
+						</dl>
+					</div>
+				</div>
+			</section>
+			
+			<section id="faq">
+				<header>
+					<h2>Important tips regarding the manifest</h2>
+				</header>
+				<div class="span12">
+					<div class="row">
+						<div class="span4">
+							<h3>Serving the app manifest</h3>
+							<p>It's <strong>recommented</strong> to serve the manifest using the extension <i>.webapp</i>.</p>
+							<p>Besides that it's <strong>mandatory</strong> to serve the manifest with the following mime type: <code>application/x-web-app-manifest+json</code>.</p>
+							<p>Finally, is <strong>recommended but not mandatory</strong> to serve the manifest over SSL.</p>
+						</div>
+						<div class="span4">
+							<h3>Handling paths</h3>
+							<p>All fields that hold paths in the manifest must be absolute paths (for example, '/images/myicon.png'), and are served from the same origin as the app. Except those urls that are informative.</p>
+						</div>
+						<div class="span4">
+							<h3>Installing apps</h3>
+							<p>In order to install apps, we need to use the <i>Mozilla API</i> for apps (still not standard, but in process). Read more information <a href="https://developer.mozilla.org/en/DOM/Apps.install">here</a></p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+    </div> <!-- /container -->
+
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+  </body>
+</html>
