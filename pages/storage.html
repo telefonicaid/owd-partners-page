@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML5 apps, best practises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Best practises for HTML5 apps: Storage">
+    <meta name="author" content="Telefónica I+D">
+
+    <!-- Le styles -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">HTML5 apps guidelines</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./hosting.html">Hosting</a></li>
+              <li><a href="./appmanifest.html">App manifest</a></li>
+              <li><a href="./offline.html">Offline</a></li>
+              <li><a href="./html5.html">Technologies</a></li>
+              <li class="active"><a href="./storage.html">Storage</a></li>
+              <li><a href="./owd-device.html">OWD</a></li>
+              <li><a href="./example.html">Boilerplate</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+			<!-- Main header -->
+			<header class="jumbotron subhead" id="overview">
+        <h1>Storage</h1>
+        <p class="lead">Store more than your assets in user's space, make your app run faster!</p>        
+      </header>
+			<!-- end main header -->
+			
+			<!-- Intro -->
+			<section id="intro">
+				<div class="row">
+					<div class="span6">		        
+						<header>
+							<h2>It's not enough with the offline cache?</h2>
+						</header>
+            <p>So, as you saw previously, <b>HTML5</b> gives you the chance to store your assets and static files via the <a href="./offline.html">cache manifest</a>. So why do we need an extra storage area? What if you could save user preferences and data while offline? Could I save also binaries?</p>
+            <p>We will try to find answer for those questions here. What you have to keep in mind is that <b>HTML5</b> give you several alternatives to save data and have it ready even while offline.</p>
+		      </div>
+		      <div class="span6">
+            <header>
+              <h2>What else I can use?</h2>
+            </header>
+            <p>We are going to show here how to use three different mechanisms to store information in user's space, those are:</p>
+            <dl class="dl-horizontal">
+              <dt>Session storage<dt>
+              <dd>Storage area available during a user session. Quite volatile.</dd>
+              <dt>Local storage</dt>
+              <dd>Persistent area, share across different sessions for the <b>origin</b> that last for long time.</dd>
+              <dt>IndexedDB</dt>
+              <dd>Still an experimental feature, but will allow you to store, <i>in an structured way</i>, large amounts of data.</dd>
+            </dl>
+		      </div>
+		    </div>
+			</section>
+			
+			<!-- Session storage -->
+			<section id="sessionStorage">
+        <header><h2>The sessionStorage</h2></header>
+        <p>It's a simple way of storing data in the browser with at <i>key,value</i> system. It's security is based on <i>same origin</i> policies.</p>
+        <p>Probably the less interesting option of the three presented here, basically cause it's meant to be valid just for the session, while the user is visiting your site/app.</p>
+        <p>Used as a save area if the user reloads the page, like could be a wizard, etc.</p>
+        <p>And example of this <b>sessionStorage</b> could be:</p>
+        <pre>// Get the text field that we're going to track
+ var field = document.getElementById("field");
+
+ // See if we have an autosave value
+ // (this will only happen if the page is accidentally refreshed)
+ if ( sessionStorage.getItem("autosave")) {
+    // Restore the contents of the text field
+    field.value = sessionStorage.getItem("autosave");
+ }
+
+ // Check the contents of the text field every second
+ setInterval(function(){
+    // And save the results into the session storage object
+    sessionStorage.setItem("autosave", field.value);
+ }, 1000);
+         </pre>
+         <p>For more information you can check the specification <a href="http://dev.w3.org/html5/webstorage/#the-sessionstorage-attribute">here</a>.</p>
+			</section>
+
+      <!-- Local storage -->
+      <section id="localStorage">
+        <header><h2>The localStorage</h2></header>
+        <p>In this case, the <b>localStorage</b>, it becomes more useful specially if we use it combined with the possibilities of offline working.</p>
+        <p>Again is the same concept of storing, using a <i>key, value</i> pair strategy, with the same security restrictions, but in this case we do have <b>persistence</b> in the values stored.</p>
+        <p>So for <b>localStorage</b> the possibilities expands, making it the perfect ally to store specific user information when going offline. An example of this could be:</p>
+        <pre>// save the string
+function saveStatusLocally(txt) {
+  window.localStorage.setItem("status", txt);
+}
+
+// read the string
+function readStatus() {
+   return window.localStorage.getItem("status");
+}
+
+function whatIsYourCurrentStatus() {
+  var status = window.prompt("What is your current status?");
+  if (!status) return;
+  if (navigator.onLine) {
+    sendToServer(status);
+  } else {
+    saveStatusLocally(status);
+  }
+}
+
+function sendLocalStatus() {
+  var status = readStatus();
+  if (status) {
+    sendToServer(status);
+    window.localStorage.removeItem("status");
+  }
+}
+
+
+window.addEventListener("load", function() {
+   if (navigator.onLine) {
+     sendLocalStatus();
+   }
+}, true);
+
+window.addEventListener("online", function() {
+  sendLocalStatus();
+}, true);
+
+window.addEventListener("offline", function() {
+  alert("You're now offline. If you update your status, it will be sent when you go back online");
+}, true);
+        </pre>
+        <p>Again, you can find the definition for <b>localStorage</b> in <a href="http://www.w3.org/TR/webstorage/#the-localstorage-attribute">W3C</a>.</p>
+      </section>
+      
+      <!-- Indexed db -->
+      <section id="indexeddb">
+        <header><h2>DBs client side with IndexedDB</h2></header>
+        <p>The new player in the client storage. <b>IndexedDB</b> offers you the change of accessing a powerful database engine within the browser, of course in a <i>SQL like way</i>.</p>
+        <p>It usually comes with two versions of the API, the <a href="http://dvcs.w3.org/hg/IndexedDB/raw-file/tip/Overview.html#async-api">asynchronous API</a> and the <a href="http://dvcs.w3.org/hg/IndexedDB/raw-file/tip/Overview.html#sync-database">synchronous one</a> (but the use of the asynchronous one is recommended).</p>
+        <p>The use of this DB is a bit more complex than the previous APIs (<i>sessionStorge</i> and <i>localStorage</i>), but also the benefits are quite different, like the chance of working in a transactional way, or indexed searchs.</p>
+        <p>Is not the purpose of this guide to do a deep understanding of this new feature, so we suggest you to visit the following links to have a better idea of what <b>indexedDB</b> can do for you, and how to use it:</p>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en/IndexedDB">Mozilla Developer Network: IndexedDB</a></li>
+          <li><a href="http://www.html5rocks.com/en/tutorials/indexeddb/todo/">Creating a TODO list with indexedDB</a></li>
+        </ul>
+      </section>
+
+      <!-- Tips and trics -->
+      <section id="tips">
+        <header><h2>Some tips and tricks about storage</h2></header>
+        <div class="span12">
+          <div class="row">
+            <div class="span4">
+              <header><h4>Security</h4></header>
+              <p>As we commented previously, the mechanism to ensure your data stored in the client is not leaked, is based on <b>same origion</b>. This means that just the pages coming from the domain that save the data is the one that can handle (modify or delete) the stored information.</p>
+            </div>
+            <div class="span4">
+              <header><h4>Binary</h4></header>
+              <p>It's possible to store binary data and have a complement for the application cache?</p>
+              <p>The answer is <b>YES</b>, using <a href="https://developer.mozilla.org/en/DOM/Blob">Blobs</a>, a file-like object of immutable raw data. You can find a nice example on how to store images in a indexedDB <a href="http://hacks.mozilla.org/2012/02/storing-images-and-files-in-indexeddb/">here</a>.</p>
+            </div>
+            <div class="span4">
+              <header><h4>Limits</h4></header>
+              <p>A <i>default 5MB</i> space is the limit for storing in the client, but if the app is installed in the browser, or request permissions in the manifest could be granted more space if needed.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div> <!-- /container -->
+
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+  </body>
+</html>
