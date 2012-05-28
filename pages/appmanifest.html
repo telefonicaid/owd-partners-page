@@ -75,7 +75,7 @@
 							<h2>What's the manifest?</h2>
 						</header>
 		        <p>The manifest is a JSON file that will describe your application. This can help users and app stores to understand your application, your needs and requisites, and will allow the browser or <strong>B2G</strong> to interact with the application.</p>
-						<p>This manifest is one of the key components of the <a hfref="https://developer.mozilla.org/en/Apps">Open Web Apps</a> initiative and will be needed if you want to perform actions like install into a browser or <strong>B2G</strong>.</p>
+						<p>This manifest is one of the key components of the <a href="https://developer.mozilla.org/en/Apps">Open Web Apps</a> initiative and will be needed if you want to perform actions like install into a browser or <strong>B2G</strong>.</p>
 		      </div>
 		      <div class="span6">
 						<header>
@@ -180,13 +180,14 @@
 					<div class="row">
 						<div class="span4">
 							<h3>Serving the app manifest</h3>
+              <span class="label label-info">Info</span> Look for the <a href="./hosting.html">Hosting page</a>
 							<p>It's <strong>recommented</strong> to serve the manifest using the extension <i>.webapp</i>.</p>
 							<p>Besides that it's <strong>mandatory</strong> to serve the manifest with the following mime type: <code>application/x-web-app-manifest+json</code>.</p>
 							<p>Finally, is <strong>recommended but not mandatory</strong> to serve the manifest over SSL.</p>
 						</div>
 						<div class="span4">
 							<h3>Handling paths</h3>
-							<p>All fields that hold paths in the manifest must be absolute paths (for example, '/images/myicon.png'), and are served from the same origin as the app. Except those urls that are informative.</p>
+							<p>All fields that hold paths in the manifest must be absolute paths (for example, <code>'/images/myicon.png'</code>), and are served from the same origin as the app. Except those URLs that are informative.</p>
 						</div>
 						<div class="span4">
 							<h3>Installing apps</h3>
@@ -195,7 +196,10 @@
 					</div>
 				</div>
 			</section>
-
+			<hr>
+      <footer>
+        <p>&copy; Telefónica I+D 2012</p>
+      </footer>
     </div> <!-- /container -->
 
     <script src="../assets/js/jquery.js"></script>
