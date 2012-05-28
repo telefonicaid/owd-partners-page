@@ -9,13 +9,14 @@
 
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <link href="../assets/css/docs.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
         padding-bottom: 40px;
       }
     </style>
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/css/docs.css" rel="stylesheet">
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -47,8 +48,8 @@
               <li><a href="./index.html">Home</a></li>
               <li><a href="./hosting.html">Hosting</a></li>
               <li><a href="./appmanifest.html">App manifest</a></li>
-              <li class="active"><a href="#">Offline</a></li>
-              <li><a href="./html5.html">Technologies</a></li>
+              <li><a href="./offline.html">Offline</a></li>
+              <li class="active"><a href="./technologies.html">Technologies</a></li>
               <li><a href="./storage.html">Storage</a></li>
               <li><a href="./owd-device.html">OWD</a></li>
               <li><a href="./example.html">Boilerplate</a></li>
@@ -59,78 +60,73 @@
     </div>
 
     <div class="container">
-
-      <div class="container">
-
-      <!-- Masthead
-      ================================================== -->
-      <header class="jumbotron subhead" id="overview">
-        <h1>Offline</h1>
-        <p class="lead">Your users won't have network all the time, let's take care of them! (plus some big wins!)</p>
-        <div class="subnav">
-          <ul class="nav nav-pills">
-            <li class="active"><a href="#domain">Domain</a></li>
-            <li class=""><a href="#hosting">Hosting</a></li>
-          </ul>
-        </div>
+			<!-- Main header -->
+			<header class="jumbotron subhead" id="overview">
+        <h1>HTML5 technologies</h1>
+        <p class="lead">What's behind this famous word?</p>        
       </header>
-
-
-
-
-<!-- Domain
-================================================== -->
-<section id="domain">
-  <div class="page-header">
-    <h1>Domain <small>for hosting your apps</small></h1>
-  </div>
-  <div class="row">
-    <div class="span4">
-      <h2>Requires a separate domain</h2>
-      <p>Apps need different domains for each app. You can not share the same domain/subdomain between apps. You can host your first app in <code>https://app1.mydomain.org/</code> and the second one in <code>https://app2.mydomain.org/</code>.</p>
-    </div><!-- /.span -->
-    <div class="span4">
-      <h2>Use SSL</h2>
-      <p>Using <strong>SSL</strong> you are proving great things to your app, such as:</p>
-      <ul>
-        <li>Users are more protected from sniffing</li>
-        <li>You provide an extra feature to your app</li>
-      </ul>
-    </div><!-- /.span -->
-    <div class="span4">
-      <h2>Reset via Normalize</h2>
-      <p>As of Bootstrap 2, the traditional CSS reset has evolved to make use of elements from <a href="http://necolas.github.com/normalize.css/" target="_blank">Normalize.css</a>, a project by <a href="http://twitter.com/necolas" target="_blank">Nicolas Gallagher</a> that also powers the <a href="http://html5boilerplate.com" target="_blank">HTML5 Boilerplate</a>.</p>
-      <p>The new reset can still be found in <strong>reset.less</strong>, but with many elements removed for brevity and accuracy.</p>
-    </div><!-- /.span -->
-  </div><!-- /.row -->
-</section>
-
-    </div>
-
-      <hr>
-
-      <footer>
-        <p>&copy; Telefónica I+D 2012</p>
-      </footer>
-
+			<!-- end main header -->
+			
+			<!-- Intro -->
+			<section id="intro">
+			  <header>
+			    <h2>So, seriously what's HTML5?</h2>
+			  </header>
+			  <p>What everyone use to call <b>HTML5</b> is not just a single technology but the combination of: <span class="label label-success">HTML (new spec)</span> + <span class="label label-important">Javascript</span> + <span class="label label-info">CSS3</span></p>
+			    <p>Each of them are old friends, but the new capabilities that they offer combined will increase your development success to an incredible level of awesomeness.</p>
+			</section>
+			
+			<section id="technologies">
+			  <header>
+			    <h2>New things to try</h2>
+			  </header>
+			  <div class="row">
+			    <div class="span 12">Ok, let's take a quick look to the list of new goodies that our old friends HTML5, Javascript and CSS have brought to <b>HTML5</b></div>
+			  </div>
+			  <div class="row">
+			    <div class="span4">
+			     <header><h4>Offline/Storage</h4></header>
+			     <p>We already talk about this important feature for <b>B2G</b> in this page. Is quite important for web apps and you should always have it in mind.</p>
+			     <p>Besides the information here, you could learn more here: <a href="http://www.html5rocks.com/en/tutorials/offline/whats-offline/">what means going offline?</a></p>
+			    </div>
+			    <div class="span4">
+			     <header><h4>Realtime communication</h4></header>
+			     <p>You could be interested in knowing how to make the browser perform to the limit, check how to work with <a href="http://www.html5rocks.com/en/tutorials/workers/basics/">WebWorkers</a>, make them communicate, or directly talk to the web via <a href="http://www.html5rocks.com/en/tutorials/websockets/basics/">WebSockets</a>.
+			    </div>
+			    <div class="span4">
+			     <header><h4>Deeper integration with the OS</h4></header>
+			     <p>Go and play with new APIs like <a href="http://www.thecssninja.com/javascript/gmail-dragout">Drag and Drop</a>, the <a href="http://www.html5rocks.com/en/tutorials/file/filesystem/">Filesystem API</a>, knowing user's location via the <a href="http://html5doctor.com/finding-your-position-with-geolocation/">Geolocation API</a>, or just know the <a href="https://developer.mozilla.org/en/Detecting_device_orientation">device orientation</a> of the user device.</p>
+			    </div>
+			  </div>
+			  <div class="row">
+			    <div class="span4">
+			      <header><h4>New semantic tags</h4></header>
+			      <p>New set of tags that add better semantics, specific markups for applications, descriptive links relations, microdata, accessibility tags (ARIA), those are some of the new additions to the markup. Go and check all the <a href="http://html5doctor.com/element-index/">new tags</a>.</p>
+			    </div>
+			    <div class="span4">
+			      <header><h4>New form types</h4></header>
+			      <p>HTML5 is adding new form types and attributes that will help improve the semantic of your app, but also help the browser/OS to render a better experience, like specific inputs for numbers, date, etc. There is a lot of new features, <a href="http://diveintohtml5.info/forms.html">dive into them!</a></p>
+			    </div>
+			    <div class="span4">
+			      <header><h4>New multimedia capabilities</h4></header>
+			      <p>As you should know, one of the top features is the native implementation for <a href="https://developer.mozilla.org/en/Using_HTML5_audio_and_video">audio and video</a> features.</p>
+			      <p>But also you could find interesting playing with a canvas where you can draw and even perform 3D renders, check it out <a href="http://www.html5rocks.com/en/features/graphics">here</a>!</p>
+			    </div>
+			  </div>
+			  <div class="row">
+			    <div class="span12">
+			      <header><h4>What about the new CSS3 features?</h4></header>
+			      <p>Oh boy!</p>
+			      <p>So many new things in CSS3, that we would need a book to talk about them, like <a href="http://www.456bereastreet.com/archive/200601/css_3_selectors_explained/">CSS3 selectors</a>, <a href="http://www.html5rocks.com/en/tutorials/webfonts/quick/">WebFonts</a>,<a href="https://developer.mozilla.org/en/CSS3_Columns">columns</a>,<a href="http://www.w3schools.com/cssref/css3_pr_opacity.asp">opacity</a>,<a href="http://www.css3.info/preview/rounded-border/">rounded corners</a>,<a href="http://www.w3schools.com/cssref/css3_pr_text-shadow.asp">text shadows</a>,<a href="http://css-tricks.com/css3-gradients/">gradients</a>,<a href="http://www.the-haystack.com/2012/01/04/learn-you-a-flexbox/">flexbox</a>,<a href="http://css3.bradshawenterprises.com/">transtions, transforms and animations</a></p>
+			      <p>But there is more, much more waiting for you to play with!</p>
+			    </div>
+			  </div>
+			</section>
+			
     </div> <!-- /container -->
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap-transition.js"></script>
-    <script src="../assets/js/bootstrap-alert.js"></script>
-    <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
-    <script src="../assets/js/bootstrap-scrollspy.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
-    <script src="../assets/js/bootstrap-tooltip.js"></script>
-    <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
-    <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
-    <script src="../assets/js/bootstrap-typeahead.js"></script>
+    <script src="../assets/js/main.js"></script>
 
   </body>
 </html>
