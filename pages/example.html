@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML5 apps, best practises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Best practises for HTML5 apps">
+    <meta name="author" content="Guillermo López (gll@tid.es), Telefónica I+D">
+
+    <!-- Le styles -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">HTML5 apps guidelines</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./hosting.html">Hosting</a></li>
+              <li><a href="./appmanifest.html">App manifest</a></li>
+              <li><a href="./offline.html">Offline</a></li>
+              <li><a href="./technologies.html">Technologies</a></li>
+              <li><a href="./storage.html">Storage</a></li>
+              <li><a href="./owd-device.html">OWD</a></li>
+              <li class="active"><a href="./example.html">Boilerplate</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+			<!-- Main header -->
+			<header class="jumbotron subhead" id="overview">
+        <h1>Application example</h1>
+        <p class="lead">Let's create a simple application to showcase the HTML5 apps possibilities in the Open Web Device.</p>        
+      </header>
+			<!-- end main header -->
+			
+			<!-- Intro -->
+			<section id="intro">
+			  <header>
+			    <h2>Our simple application</h2>
+			  </header>
+			  <p>We will create a simple application for the Open Web Device that will guide you through the main topics.</p>
+			  <p>Our application will be displaying a simple <b>list of the device capabilities</b>, showing the user if the device is <b>online/offline</b> and showing <b>application information</b> (detecting if the app is installed, if not, offer the change of installing it.)</p>
+			</section>
+			
+			<section id="steps">
+			  <header>
+			    <h2>Steps to create our app</h2>
+			  </header>
+			  <p>
+			    We will use the technologies explained previously to create our app. The steps (in order) that we will follow are:
+			  </p>
+			  <ul>
+			    <li>Create a app manifest</li>
+			    <li>Use new apis in your app</li>
+			    <li>Create the cache manifest</li>
+			  </ul>  
+			  <h3>Creating the app manifest</h3>
+			  <p>
+			    As you could read in the documentation about the <a href="appmanifest.html">app manifest</a>, here is where we declare our app (name, description, data about the developer, icons, etc.).
+			  </p>
+			  <p>
+          The <span class="label label-info">manifest.webapp</span> for our test app is the following one:
+			  </p>
+        <pre>
+          {
+            "name": "mycoolapp",
+            "description": "This is my supercool app",
+            "launch_path": "/",
+            "developer": {
+              "name": "Cool Developer",
+              "url": "http://mycoolcompany.com"
+            },
+            "locales": {
+              "en-US": {
+                "name": "mycoolapp",
+                "description": "This is my supercool app"
+              },
+              "es": {
+                "name": "mycoolapp",
+                "description": "Mi aplicacion molona"
+              }
+            },
+            "default_locale": "en-US",
+            "icons": {
+              "120": "data:image/png;base64,##icon encoded in base64 format###"
+            },
+            "orientation": "portrait-primary"
+          }
+        </pre>
+        <p>
+          As you can see here we describe an application, called <i>mycoolapp</i>, with translations, information about the developer as well as the <i>lauch_path</i>, in this case we will have a <i>index.html</i>, if we have a file with any other name, or a specific route we have to specify it in that parameter.
+        </p>
+        <p>
+          Also notice that the icon section can include the icon in base64 format, if you download the example you will see the full data section for the image.
+        </p>
+        <h3>Use new apis in our app</h3>
+        <p>
+          If you take a look to the code of the full app you will see how we use different techniques and APIs to make our app responsive to things like being offline, being able to detect device capabilities etc.
+        </p>
+        <h4>Detecting device capabilities</h4>
+        <p>
+          One of the first things we do is use <a href="http://www.modernizr.com">Modernizr</a>, a <i>Javascript library</i> for detecting the browser capabilities. This is also useful developing web apps for the Open Web Device, will help you to realise what functionalities you are able to use and how to bypass possible problems. Please take a look to the <b>Modernizr</b> to learn more about it.
+        </p>
+        <p>
+          Below you can find part of the Javascript code that we use in our test app to check some new APIs and properties. We basically check the list of properties, and react changing the class name of an element to highlight if it's available or not.
+        </p>
+        <pre>
+CAPABILITIES: [
+  'localstorage',
+  'canvas',
+  'applicationcache',
+  'borderradius',
+  'postmessage',
+  'indexeddb',
+  'boxshadow'
+];
+
+/**
+  Fill the list with capabilities detected
+  with modernizr
+*/
+checkCapabilities: function _checkCapabilities() {
+  var elem;
+  this.CAPABILITIES.forEach(function(feature){
+    elem = document.getElementById(feature);
+    elem.innerHTML = Modernizr[feature] ? 'yes' : 'no';
+    elem.className = elem.innerHTML;
+  });
+}
+        </pre>
+        <h4>Checking if we are online or offline</h4>
+        <p>
+          Your app should be aware if it's online or offline. Now taking int account that we can put parts of our app offline through <a href="offline.html">different mechanisms</a>, you should control if the user is connected or not for a correct use of your application. 
+        </p>
+        <p>
+          For doing this there is a <a href="https://developer.mozilla.org/en/Online_and_offline_events">new API</a> that will give you information if the user is connected or not. Also you can check this by yourself performing a <b>XMLHttpRequest</b> to a known url and listening for errors.
+        </p>
+        <p>
+          In our test app we will be using both mechanisms to detect user connectivity:
+        </p>
+        <pre>
+/**
+  Check whenever the connection is enabled or not
+*/
+checkConnectivity: function _checkConnectivity() {
+  var changeStatus = function() {
+    document.getElementById('connection').innerHTML = navigator.onLine ? 'online' : 'offline';
+    document.getElementById('connection').className = navigator.onLine ? 'yes' : 'no';
+  }
+  changeStatus.call();
+  //Listen to connectivity changes to update status
+  window.addEventListener("offline",changeStatus);
+  window.addEventListener("online",changeStatus);
+
+  //But sometimes a 'true' value doesn't mean we have connection
+  //To avoid effects of appcache, perform a request to one known file
+  function detectConnectivity() {
+    var xhr = new XMLHttpRequest();
+
+    var noResponseTimer = setTimeout(function() {
+      xhr.abort();
+      //We can fire an event an notify listeners
+      document.getElementById('connection').innerHTML = 'offline';
+      document.getElementById('connection').className = 'no';
+
+    }, 1000 /* Timeout milliseconds*/);
+
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState != 4) {
+            return;
+      }
+
+      if(xhr.status == 200) {
+        //Connectivity
+        //We can fire an event here
+        clearTimeout(noResponseTimer)
+        document.getElementById('connection').innerHTML = 'online';
+        document.getElementById('connection').className = 'yes';
+      } else {
+        //Offline
+        //We can fire an event here
+        document.getElementById('connection').innerHTML = 'offline';
+        document.getElementById('connection').className = 'no';
+      }
+    };
+
+    xhr.open('GET', 'noncachedurl.html');
+    xhr.send();
+  };
+
+  detectConnectivity.call();
+}
+        </pre>
+        <p>
+          Is important that the file that we use in the XMLHttpRequest is not in the offline cache, if not we won't be able to detect the offline mode.
+        </p>
+                <h4>Detecting information about the app</h4>
+                <p>
+                  The Open Web Device will offer you the api for <a href="https://developer.mozilla.org/en/Apps">Open Web Apps</a>, and as we saw before it allows you to install apps in the phone. Also will allow you to check if your app is installed in the device, and grab information about the installation.
+                </p>
+                <p>
+                  The <b>Open Web Apps</b> API will allow you to request the install of the application without even going to any kind of market. This is, the user can discover your app using the browser, and you can display a button to install the app in the phone and having it offline (as long as you follow the last step: offline cache).
+                </p>
+                <p>
+                  Let's take a look to how you can detect an play with this information:
+                </p>
+                <pre>
+        /**
+          MOZILLA ONLY: Checks for the Open Web Apps api
+          to show the link to install or show information
+          about installation
+        */
+        checkApplication: function _checkApplication() {
+          if(navigator.mozApps) {
+            var apps = document.getElementById('apps');
+            var req = window.navigator.mozApps.getSelf();
+            req.onsuccess = function(e) {
+              //Show information regarding the app
+
+              var span = document.createElement('span');
+              span.innerHTML = 'Congrats, this app is already installed!';
+              span.className = 'install';
+              apps.appendChild(span);
+
+              //Date installed
+              var dl = document.createElement('dl');
+              var dt = document.createElement('dt');
+              var dd = document.createElement('dd');
+              dd.className = 'yes';
+
+              dt.innerHTML = 'Date installed';
+              dd.innerHTML = new Date(req.result.installTime * 1000);
+
+              dl.appendChild(dt);
+              dl.appendChild(dd);
+
+              //Origin
+              dt = document.createElement('dt');
+              dd = document.createElement('dd');
+              dd.className = 'yes';
+
+              dt.innerHTML = 'Origin';
+              dd.innerHTML = req.result.origin;
+
+              dl.appendChild(dt);
+              dl.appendChild(dd);
+
+              //Description
+              dt = document.createElement('dt');
+              dd = document.createElement('dd');
+              dd.className = 'yes';
+
+              dt.innerHTML = 'Description';
+              dd.innerHTML = req.result.manifest.description;
+
+
+              dl.appendChild(dt);
+              dl.appendChild(dd);
+
+              apps.appendChild(dl);
+            };
+            req.onerror = function(e) {
+              //Show the install button
+              var span = document.createElement('span');
+              span.innerHTML = 'Click me to install';
+              span.className = 'install';
+              span.addEventListener('click', function(){
+                navigator.mozApps.install('manifest.webapp');
+              });
+              apps.appendChild(span);
+            };
+
+            apps.className = '';
+          }
+                </pre>
+                <h3>Creating the app manifest</h3>
+                <p>Last step to going offline, cache the parts of our app that we want to run offline, or that we don't need to download constantly. For doing that, create a <a href="offline.html#cachefile">cache manifest</a> as we described before, now that you have all the files, and assets for your application.</p>
+                <p>Our <span class="label label-info">manifest.appcache</span> looks like:</p>
+                <pre>
+        CACHE MANIFEST
+        # Version c86f9edf28ca62f65e6f393eb320d5b6
+        index.html
+        js/modernizr.min.js
+        js/mycoolapp.js
+
+        manifest.webapp
+        style/mycoolapp.css
+        style/reset.css
+        http://gaiamobile.org/webapi.js
+        NETWORK:
+        http://*
+        https://*
+                </pre>
+
+      </section>
+
+			
+      <section id="download">
+        <header>
+          <h2>Download the app example</h2>
+        </header>
+        <p>
+          <a href="../assets/mycoolapp.tar.gz">Here</a> you can find the package with all the elements of our app. You can place this in a server and point the Open Web Device browser to it.
+        </p>
+        <p>
+          Once your app is deployed, you can visit http://marketplace.mozilla.org and register as a developer in order to add your app to the Mozilla market place. Folllow the steps in the developer section to verify your app.
+        </p>
+      </section>
+      
+      <footer>
+        <p>&copy; Telefónica I+D 2012</p>
+      </footer>
+			
+    </div> <!-- /container -->
+
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+  </body>
+</html>
