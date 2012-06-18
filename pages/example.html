@@ -64,10 +64,10 @@
 			<!-- Main header -->
 			<header class="jumbotron subhead" id="overview">
         <h1>Application example</h1>
-        <p class="lead">Let's create a simple application to showcase the HTML5 apps possibilities in the Open Web Device.</p>        
+        <p class="lead">Let's create a simple application to showcase the HTML5 apps possibilities in the Open Web Device.</p>
       </header>
 			<!-- end main header -->
-			
+
 			<!-- Intro -->
 			<section id="intro">
 			  <header>
@@ -76,7 +76,7 @@
 			  <p>We will create a simple application for the Open Web Device that will guide you through the main topics.</p>
 			  <p>Our application will be displaying a simple <b>list of the device capabilities</b>, showing the user if the device is <b>online/offline</b> and showing <b>application information</b> (detecting if the app is installed, if not, offer the change of installing it.)</p>
 			</section>
-			
+
 			<section id="steps">
 			  <header>
 			    <h2>Steps to create our app</h2>
@@ -88,7 +88,7 @@
 			    <li>Create a app manifest</li>
 			    <li>Use new apis in your app</li>
 			    <li>Create the cache manifest</li>
-			  </ul>  
+			  </ul>
 			  <h3>Creating the app manifest</h3>
 			  <p>
 			    As you could read in the documentation about the <a href="appmanifest.html">app manifest</a>, here is where we declare our app (name, description, data about the developer, icons, etc.).
@@ -165,7 +165,7 @@ checkCapabilities: function _checkCapabilities() {
         </pre>
         <h4>Checking if we are online or offline</h4>
         <p>
-          Your app should be aware if it's online or offline. Now taking int account that we can put parts of our app offline through <a href="offline.html">different mechanisms</a>, you should control if the user is connected or not for a correct use of your application. 
+          Your app should be aware if it's online or offline. Now taking int account that we can put parts of our app offline through <a href="offline.html">different mechanisms</a>, you should control if the user is connected or not for a correct use of your application.
         </p>
         <p>
           For doing this there is a <a href="https://developer.mozilla.org/en/Online_and_offline_events">new API</a> that will give you information if the user is connected or not. Also you can check this by yourself performing a <b>XMLHttpRequest</b> to a known url and listening for errors.
@@ -329,7 +329,7 @@ checkConnectivity: function _checkConnectivity() {
 
       </section>
 
-			
+
       <section id="download">
         <header>
           <h2>Download the app example</h2>
@@ -338,18 +338,14 @@ checkConnectivity: function _checkConnectivity() {
           <a href="../assets/mycoolapp.tar.gz">Here</a> you can find the package with all the elements of our app. You can place this in a server and point the Open Web Device browser to it.
         </p>
         <p>
-          Once your app is deployed, you can visit http://marketplace.mozilla.org and register as a developer in order to add your app to the Mozilla market place. Folllow the steps in the developer section to verify your app.
+          Once your app is deployed, you can visit <a href="http://marketplace.mozilla.org">http://marketplace.mozilla.org</a> and register as a developer in order to add your app to the Mozilla market place. Folllow the steps in the developer section to verify your app.
         </p>
       </section>
-      
+
       <footer>
         <p>&copy; Telefónica I+D 2012</p>
       </footer>
-			
+
     </div> <!-- /container -->
-
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/main.js"></script>
-
   </body>
 </html>
