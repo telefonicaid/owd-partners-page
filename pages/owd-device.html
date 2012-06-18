@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML5 apps, best practises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Best practises for HTML5 apps: Storage">
+    <meta name="author" content="Telefónica I+D">
+
+    <!-- Le styles -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">HTML5 apps guidelines</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./hosting.html">Hosting</a></li>
+              <li><a href="./appmanifest.html">App manifest</a></li>
+              <li><a href="./offline.html">Offline</a></li>
+              <li><a href="./technologies.html">Technologies</a></li>
+              <li><a href="./storage.html">Storage</a></li>
+              <li class="active"><a href="#">OWD</a></li>
+              <li><a href="./example.html">Example</a></li>
+              <li><a href="./adapting.html">Adapting your app</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+			<!-- Main header -->
+			<header class="jumbotron subhead" id="overview">
+        <h1>OWD hardware</h1>
+        <p class="lead">A lot of power in a small package</p>
+      </header>
+			<!-- end main header -->
+
+			<!-- Intro -->
+			<section id="intro">
+				<div class="row">
+					<div class="span6">
+						<header>
+							<h2>Really powerful device</h2>
+						</header>
+            <p>Cheap doesn't mean slow or bad. OWD first device will have <b>much of the hardware big devices have</b>, like GPS, FM Radio, Bluetooth and touch keys.</p>
+            <p>But apart from that, there is a huge opportunity to build <b>great apps with little effort</b> for this device. It's really powerful, it has everything a phone should have and still open for more from you!</p>
+		      </div>
+		      <div class="span6">
+            <header>
+              <h2>Blah</h2>
+            </header>
+            <p>We are going to show here how to use three different mechanisms to store information in user's space, those are:</p>
+		      </div>
+		    </div>
+			</section>
+
+			<!-- Hardware Characteristics -->
+			<section id="hardware">
+        <header><h2>Hardware characteristics</h2></header>
+          <div class="row">
+          <div class="span3">
+          <h3>Connectivity</h3>
+            <dl class="dl-horizontal">
+              <dt>WiFi</dt>
+              <dd>Yes!</dd>
+              <dt>3G</dt>
+              <dd>UMTS, HSUPA</dd>
+              <dt>Frequency</dt>
+              <dd>850, 900, 1800, 1900, 2100</dd>
+            </dl>
+          </div>
+          <div class="span3">
+          <h3>Display</h3>
+            <dl class="dl-horizontal">
+              <dt>Pixels</dt>
+              <dd>HVGA, 320x240</dd>
+              <dt>Colours</dt>
+              <dd>560k</dd>
+              <dt>Size</dt>
+              <dd>3.2 inches</dd>
+            </dl>
+          </div>
+          <div class="span3">
+          <h3>Camera</h3>
+            <ul>
+              <li>3.2 megapixels</li>
+              <li>Autofocus</li>
+            </ul>
+          </div>
+          <div class="span3">
+          <h3>Sensors</h3>
+            <ul>
+              <li>A-GPS</li>
+              <li>Digital compass</li>
+              <li>Accelerometer</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span3">
+          <h3>External buttons and connections</h3>
+            <ul>
+              <li>Physical volume button (up/down)</li>
+              <li>Physical power button</li>
+              <li>SIM card slot</li>
+              <li>microSD slot</li>
+              <li>3.5mm Headset Jack</li>
+              <li>Speaker</li>
+              <li>Microphone (with second microphone for active noise cancellation)</li>
+              <li>microUSBport</li>
+            </ul>
+          </div>
+          <div class="span3">
+          <h3>Storage</h3>
+            <ul>
+              <li>RAM: 512 MB</li>
+              <li>ROM: 256 MB</li>
+              <li>microSD up to 8GB</li>
+            </ul>
+          </div>
+          <div class="span3">
+          <h3>Battery</h3>
+            <dl class="dl-horizontal">
+              <dt>Removable</dt>
+              <dd>1200mAH</dd>
+              <dt>Talk (2G)</dt>
+              <dd>10h</dd>
+              <dt>Standby (2G)</dt>
+              <dd>290h</dd>
+              <dt>Talk (3G)</dt>
+              <dd>7h</dd>
+              <dt>Standb8 (3G)</dt>
+              <dd>250h</dd>
+              <dt>Internet (3G)</dt>
+              <dd>5h</dd>
+              <dt>Video</dt>
+              <dd>XXXX</dd>
+              <dt>Audio</dt>
+              <dd>20h</dd>
+              <dt></dt>
+              <dd></dd>
+            </dl>
+          </div>
+        </div>
+			</section>
+
+      <hr>
+      <footer>
+        <p>&copy; Telefónica I+D 2012</p>
+      </footer>
+    </div> <!-- /container -->
+
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+  </body>
+</html>
