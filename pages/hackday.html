@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Firefox OS Hackday</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Best practises for HTML5 apps">
+  <meta name="author" content="Guillermo López (gll@tid.es), Telefónica I+D">
+
+  <!-- Le styles -->
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../assets/css/docs.css" rel="stylesheet">
+  <style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+  </style>
+  <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <!-- Le fav and touch icons -->
+      <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    </head>
+
+    <body>
+
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">HTML5 apps guidelines</a>
+            <div class="nav-collapse">
+              <ul class="nav">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./hosting.html">Hosting</a></li>
+                <li><a href="./appmanifest.html">App manifest</a></li>
+                <li><a href="./offline.html">Offline</a></li>
+                <li><a href="./technologies.html">Technologies</a></li>
+                <li><a href="./storage.html">Storage</a></li>
+                <li><a href="./owd-device.html">OWD</a></li>
+                <li><a href="./example.html">Example</a></li>
+                <li><a href="./adapting.html">Adapting your app</a></li>
+                <li class="active"><a href="./hackday.html">Hackday</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+      <!-- Masthead
+      ================================================== -->
+      <header class="jumbotron subhead" id="overview">
+        <h1>Firefox OS Hackday</h1>
+        <p class="lead">You need to follow the next steps to be prepared for our second <b>Open Web Device</b> hackday!</p>
+      </header>
+
+     <section id="steps">
+      <div class="hero-unit">
+        <div class="row">
+          <div class="span2">
+            <h2>Step 1</h2>
+          </div>
+          <div class="span10">
+            <p>
+              You should have Linux or Mac. And you need the <code>make</code> and <code>git</code> tools. Check how you can install it and have it on your path to be used in your terminal app.
+            </p>
+            <p>
+              We don't know if there is an easy way to get <code>make</code> working on Windows. So it's better if you can create a VM with some Linux distro you are confortable with.
+            </p>
+            <p>
+              If you <b>really REALLY</b> like Windows we heard that <code><a href="http://www.cygwin.com/">Cygwin</a></code> can be useful to get <code>make</code> running. Although we haven't tested yet, and we can't support you.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-unit">
+        <div class="row">
+          <div class="span2">
+            <h2>Step 2</h2>
+          </div>
+          <div class="span10">
+            <p>
+              Install and know how to use your code editor. A plain text editor (<code>vi</code> or <code>emacs</code>), <code><a href="http://www.sublimetext.com/">SublimeText</a></code> or whatever you like, but, please, master it! We know that master a tool is a good performance booster.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-unit">
+        <div class="row">
+          <div class="span2">
+            <h2>Step 3</h2>
+          </div>
+          <div class="span10">
+            <p>
+              If you want to develop in your own computer (which is good if you don't have a phone or want to test quickly), you will need the Nightly version of Firefox. Just browse to <a href="http://nightly.mozilla.org/">this page</a> and download your version. You can use different profiles with the same Firefox installation or with different versions. Check <a href="https://support.mozilla.org/en-US/kb/profile-manager-create-and-remove-firefox-profiles">this page</a> if you want to separate your profiles.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-unit">
+        <div class="row">
+          <div class="span2">
+            <h2>Step 4</h2>
+          </div>
+          <div class="span10">
+            <p>
+              Create a hackday directory wherever you want. Like in your home path: <code>~/hackday/</code>, and enter it.
+            </p>
+            <p>
+              Download Gaia: <code>git clone https://github.com/mozilla-b2g/gaia.git</code>. It will take some time, since it's around ~250MB.
+            </p>
+            <p>
+              Make Gaia: You might think that Gaia shouldn't be compiled, and it isn't! But there are some things that need to be <code>make</code>d to create a profile. Since Gaia is not just webapps, but "special" webapps (need permissions to do some things that are not allowed to normal apps), this step is neccesary. This will download xulrunner (between 50 and 250MB) and make some interesting things.
+            </p>
+            <p>
+              So, just type <code>DEBUG=1 make</code> and watch the dance. Once finished, you will have a Firefox profile that you can open to test Gaia. In fact, you will have a message like this:<br>
+              <code>Profile Ready: please run [b2g|firefox] -profile /YOUR/PATH/TO/gaia/profile</code>
+            </p>
+            <p>
+              Then, you can open a specific application, like: </br>
+              <code>firefox -profile /YOUR/PATH/TO/gaia/profile http://contacts.gaiamobile.org:8080/</code></br>
+              where <code>firefox</code> is the path to your Firefox binary.
+            </p>
+            <p>
+              This will open that Firefox profile with the app that you have selected. You can play with it (and the Firefox developer tools).
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-unit">
+        <div class="row">
+          <div class="span2">
+            <h2>Step 5</h2>
+          </div>
+          <div class="span10">
+            <p>
+              Download the AndroidSDK
+            </p>
+            <p>
+              This step is mandatory if you are going to develop with a phone, and want to see your awesome app in a real phone.</br>
+              Go to <code><a href="http://developer.android.com/sdk/index.html"></a>Android SDK page</code> and download accordingly to your Operating System.
+            </p>
+            <p>
+              Follow <a href="http://developer.android.com/sdk/installing/index.html">the steps</a>, and install the "Android SDK Platform-tools" which installs adb, the neccesary binary to push files to the device.
+            </p>
+            <p>
+              Note that if you are using Linux, you have two options, to use <code>sudo</code> while working with <code>adb</code>, or adding <code>udev</code> rules. We suggest using the second way, if so, follow <a href="http://developer.android.com/tools/device.html">this guide</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <footer>
+      <p>&copy; Telefónica I+D 2012</p>
+    </footer>
+
+  </div> <!-- /container -->
+
+</body>
+</html>
