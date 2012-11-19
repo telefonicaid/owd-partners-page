@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HTML5 apps, best practises</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Best practises for HTML5 apps">
+  <meta name="author" content="Guillermo López (gll@tid.es), Telefónica I+D">
+
+  <!-- Le styles -->
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../assets/css/docs.css" rel="stylesheet">
+  <link href="../assets/css/moz-theme.css" rel="stylesheet">
+  <style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+  </style>
+  <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <!-- Le fav and touch icons -->
+      <script type="text/javascript" src="ui-examples/codepreview.js"></script>
+      <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    </head>
+
+    <body class="page-user_interface">
+
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="./index.html">HTML5 apps guidelines</a>
+            <div class="nav-collapse">
+              <ul class="nav">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#">Hosting</a></li>
+                <li><a href="./appmanifest.html">App manifest</a></li>
+                <li><a href="./offline.html">Offline</a></li>
+                <li><a href="./technologies.html">Technologies</a></li>
+                <li><a href="./storage.html">Storage</a></li>
+                <li class="active"><a href="./ui.html">User interface</a></li>
+                <li><a href="./owd-device.html">OWD</a></li>
+                <li><a href="./example.html">Example</a></li>
+                <li><a href="./adapting.html">Adapting your app</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+      <!-- Masthead
+      ================================================== -->
+      <header class="jumbotron subhead" id="overview">
+        <h1>User interface</h1>
+        <p class="lead">There are common patterns, we call them Building Blocks</p>
+   <!--      <div class="subnav">
+          <ul class="nav nav-pills">
+            <li class=""><a href="#domain">Domain</a></li>
+            <li class=""><a href="#hosting">Hosting</a></li>
+          </ul>
+        </div> -->
+      </header>
+
+
+<!-- Design
+  ================================================== -->
+  <section id="designing">
+    <div class="page-header">
+      <h1>Designing <small>first of all</small></h1>
+    </div>
+        <p>There is a <a href="https://www.dropbox.com/s/wyuqv3fwpokax73/CommonControls_121005.psd">.PSD</a> file that contains all the main controls used in <strong>Gaia</strong>.</p>
+        <p>You can visit the <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks">Wiki page</a> with detailed information about use-cases, interaction, visual design and editable assets.</p>
+  </section>
+
+<!-- Code
+  ================================================== -->
+  <section id="coding">
+    <div class="page-header">
+      <h1>Coding <small>overview</small></h1>
+    </div>
+    <div class="row">
+      <div class="span6">
+        <h2>What can be done?</h2>
+        <p><strong>You can build all the UI</strong> for your applications without wirting any line of <strong>CSS</strong></p>
+        <p>Benefits? Full semanthic + accesible structures built in with the latest standards, reviewed and coded for top professionals on the web.</p>
+      </div><!-- /.span -->
+      <div class="span6">
+        <h2>What can't be done?</h2>
+        <p><strong>Building Blocks</strong> are just plain <code>.css</code> and <code>.html</code> files, so it does not include any <code>.js</code>,  that means if you need some behaviour you need to keep your hands dirty.</p>
+        <p>But, there is <strong>many features CSS only</strong> ready in the Building Blocks.</p>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+  </section>
+
+  <!-- How to
+  ================================================== -->
+  <section id="howto">
+      <h2>How to...<small></small></h2>
+      <h3>All is shared</h3>
+      <p>All the resources needed for the Building Blocks are placed in <code>/shared/</code> folder inside <strong>Gaia</strong>. This means that the whole system apperance could be changed rewriting these files. <br/>
+        So, you only <strong>need to link the required CSS</strong> files and append the example HTML.</p>
+      <p>There are a bunch of Building Blocks, but we can split in three main categories</p>
+      <div class="row">
+        <div class="span4">
+          <h3>Dialogs</h3>
+          <dl class="dl-horizontal">
+            <dt><a href="#bb_actionmenu">Action menu</a></dt>
+            <dd>Context menus</dd>
+            <dt><a href="#bb_confirm">Confirm</a></dt>
+            <dd>Dialog boxes with message + accept/dismiss buttons</dd>
+            <dt><a href="#bb_editmode">Edit mode</a></dt>
+            <dd>Edition panels with a dialog-like button toolbar</dd>
+            <dt><a href="#bb_status">Status</a></dt>
+            <dd>Notification toasters</dd>
+          </dl>
+        </div>
+
+        <div class="span4">
+          <h3>Widgets</h3>
+          <dl class="dl-horizontal">
+            <dt><a href="#bb_headers">Headers</a></dt>
+            <dd>Common header bars (title + navigation buttons)</dd>
+            <dt><a href="#bb_lists">Lists</a></dt>
+            <dd>List style structures, ready for placing floating elements</dd>
+            <dt><a href="#bb_scrolling">Scrolling</a></dt>
+            <dd>Additional strcutures for controlling in-app scroll</dd>
+            <dt><a href="#bb_tabs">Tabs</a></dt>
+            <dd>Contains filters and tabs</dd>
+            <dt><a href="#bb_drawer">Drawer</a></dt>
+            <dd>Hidden lateral menu behind app content</dd>
+            <dt><a href="#bb_toolbars">Toolbars</a></dt>
+            <dd>Great for commonly used actions</dd>
+            <dt><a href="#bb_seekbars">Seekbars</a></dt>
+            <dd>Mainly used for setting range values</dd>
+          </dl>
+        </div>
+
+        <div class="span4">
+          <h3>Pieces</h3>
+          <dl class="dl-horizontal">
+            <dt><a href="#bb_buttons">Buttons</a></dt>
+            <dd>Common buttons</dd>
+            <dt><a href="#bb_inputareas">Input areas</a></dt>
+            <dd>Common input areas (e.g. search bars)</dd>
+            <dt><a href="#bb_switches">Switches</a></dt>
+            <dd>Checkboxes, radio buttons, ON/OFF switches</dd>
+            <dt><a href="#bb_progressactivity">Progress activity</a></dt>
+            <dd>Common spinners and progress bars</dd>
+          </dl>
+        </div>
+      </div>
+  </section>
+
+  <!-- Examples
+  ================================================== -->
+  <section id="examples">
+    <div class="page-header">
+      <h1>Examples <small>real code ready</small></h1>
+    </div>
+
+    <div class="row bb-article" id="bb_actionmenu">
+      <iframe data-tab="receiver" src="ui-examples/style/action_menu/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Action menu <small>/shared/style/action_menu.css</small></h2>
+        <p>Header is optional and the last button will be always the cancel one style. <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Action_Menu">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+    <div class="row bb-article" id="bb_confirm">
+      <iframe data-tab="receiver" src="ui-examples/style/confirm/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Confirm <small>/shared/style/confirm.css</small></h2>
+          <ul class="nav nav-pills" data-tab="trigger">
+            <li class="active"><a href="ui-examples/style/confirm/index.html">default</a></li>
+            <li><a href="ui-examples/style/confirm/no_title.html">w/o title</a></li>
+            <li><a href="ui-examples/style/confirm/content.html">content</a></li>
+          </ul>
+        <p>We have three different cases, <strong>default</strong>, <strong>without title</strong> and <strong>with content</strong></p>
+        <p>There are two alternative button styles: <code>.danger</code>, <code>.recommend</code> and one different layout <code>.full</code> , this one is used for only having one button.</p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+     <div class="row bb-article" id="bb_editmode">
+      <iframe data-tab="receiver" src="ui-examples/style/edit_mode/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Edit mode <small>/shared/style/edit_mode.css</small></h2>
+        <p>There are no extra options, and <strong>the blank space does not receive events</strong>, so any content behind will get the user interaction.</p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+     <div class="row bb-article" id="bb_status">
+      <iframe data-tab="receiver" src="ui-examples/style/status/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Status <small>/shared/style/status.css</small></h2>
+        <p>You can hihglight the text in blue by using <code>&lt;strong&gt;my string&lt;/strong&gt;</code>. <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Banner">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+    <div class="row bb-article" id="bb_headers">
+      <iframe src="ui-examples/style/headers/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Headers <small>/shared/style/headers.css</small></h2>
+        <p>There are multiple configurations and skins, is required for it being a direct child of <code>section[role="region"]</code>. <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Headers">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+    <div class="row bb-article" id="bb_lists">
+      <iframe src="ui-examples/style_unstable/lists/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Lists <small>/shared/style_unstable/lists.css</small></h2>
+        <p>Always needs a container with <code>data-type="list"</code>.  <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Lists">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+    <div class="row bb-article"  id="bb_scrolling">
+      <iframe src="ui-examples/style_unstable/scrolling/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Scrolling <small>/shared/style_unstable/scrolling.css</small></h2>
+        <p>Always needs a container with <code>data-type="list"</code>.  <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Scrolling">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+    <div class="row bb-article" id="bb_tabs">
+      <iframe src="ui-examples/style_unstable/tabs/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Tabs <small>/shared/style_unstable/tabs.css</small></h2>
+        <p>Provides <strong>CSS navigation</strong> (w/o JS) using <code>:target</code> and could be configurable with many items as required, also could be positioned at "top". <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Tabs">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+     <div class="row bb-article" id="bb_filters">
+      <iframe src="ui-examples/style_unstable/tabs/filters.html#filter1-1" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Filters <small>/shared/style_unstable/tabs.css</small></h2>
+        <p>Shares the code from <strong>Tabs</strong> but you need to add <code>data-type=filter</code> to them.  <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Filters">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+    <div class="row bb-article" id="bb_drawer">
+      <iframe src="ui-examples/style_unstable/drawer/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Drawer <small>/shared/style_unstable/drawer.css</small></h2>
+        <p>Sliding panel triggered by "menu" icon, also includes basic states manager with <code>:target</code>. <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Drawer">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+    <div class="row bb-article" id="bb_toolbars">
+      <iframe src="ui-examples/style_unstable/toolbars/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Toolbars <small>/shared/style_unstable/toolbars.css</small></h2>
+        <p>Always stays at bottom position, and could be used of course with custom icons. <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Tool_bars">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+    <div class="row bb-article" id="bb_seekbars">
+      <iframe src="ui-examples/style_unstable/seekbars/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Seekbars <small>/shared/style_unstable/seekbars.css</small></h2>
+        <p>Requires some custom JS for moving the handler. Could be used of course with custom icons. <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Seek_bars">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+     <div class="row bb-article" id="bb_buttons">
+      <iframe src="ui-examples/style/buttons/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Buttons <small>/shared/style_unstable/buttons.css</small></h2>
+        <p>You can use <code>&lt;a role="button"&gt;</code> or <code>&lt;button&gt;</code> <br/> Disabled states are used in this way: <code>&lt;a role="button" aria-disabled&gt;</code> or <code>&lt;button disabled&gt;</code></p>
+        <p>Any <code>&lt;button&gt;</code> inside a <code>&lt;li&gt;</code> will have the apperance of lists buttons. <br/> We also provide two basic icons <strong>view</strong> & <strong>dialog</strong> of course you can extend it. <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Buttons">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+     <div class="row bb-article" id="bb_inputareas">
+      <iframe src="ui-examples/style/input_areas/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Input areas <small>/shared/style/input_areas.css</small></h2>
+        <p>There are 3 main components, <strong>simple textfields</strong>, <strong>fieldesets</strong> and <strong>search/send forms</strong> <br/>
+          <strong>Search/Send forms</strong> could be used at top of application window (default) or at the button by using <code>class="bottom"</code>. <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Input_areas">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+    <div class="row bb-article" id="bb_switches">
+      <iframe src="ui-examples/style/switches/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Switches <small>/shared/style/switches.css</small></h2>
+        <p>Three main types, <strong>checkbox</strong>, <strong>radio</strong> and <strong>switch</strong>. All of them are working using real inputs type checkbox or radio. <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Switches">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+
+    <div class="row bb-article" id="bb_progressactivity">
+      <iframe src="ui-examples/style_unstable/progress_activity/index.html" class="bb-example"></iframe>
+       <div class="span8">
+        <h2>Progress activity <small>/shared/style_unstable/progress_activity.css</small></h2>
+        <p>Indeterminate progress (rotatin wheels) will work by default, if is not being setted any <code>value</code> . <br/>
+          But if it does, it will be show as a progressbar</p>
+          <p>There are also some styles ready for labelled progress <code>&lt;p role="status"&gt;</code> <a href="https://wiki.mozilla.org/Gaia/Design/BuildingBlocks#Progress_.26_Activity_Indicators">More info</a></p>
+        <div class="bb-code">Click on the component to see the code!</div>
+      </div><!-- /.span -->
+    </div><!-- /.row -->
+  </section>
+
+  <hr>
+
+  <footer>
+    <p>&copy; Telefónica I+D 2012</p>
+  </footer>
+
+</div> <!-- /container -->
+
+  </body>
+  </html>
