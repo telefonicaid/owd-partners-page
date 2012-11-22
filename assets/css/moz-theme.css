@@ -1,0 +1,54 @@
+/* Skining over bootstrap, following Mozila Style Guide: http://www.mozilla.org/en-US/styleguide/ */
+
+/* Defaults */
+@import url("moz-fonts.css");
+
+a { color: #00539F; }
+a:active { color: #00539F; }
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', sans-serif; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7); }
+	h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { color: #6A7B86; }
+
+p { font-family: 'Open Sans', sans-serif; }
+hr { border-color: #D7D3C8 transparent #fff; }
+
+/* Main layout */
+body {
+	font-family: 'Open Sans', sans-serif;
+	color: #4D4E53;
+	background: url(../img/grid-18px-masked.png) repeat-x 0 40px, -moz-linear-gradient(center top, #D7D3C8, #F6F4EC);
+	background: url(../img/grid-18px-masked.png) repeat-x 0 40px, -webkit-linear-gradient(center top, #D7D3C8, #F6F4EC);
+	background: url(../img/grid-18px-masked.png) repeat-x 0 40px, linear-gradient(center top, #D7D3C8, #F6F4EC);
+}
+
+
+/* Navigation */
+.navbar-inner {
+	background-image: -moz-linear-gradient(center top, #424F5A, #6A7B86);
+	background-image: -webkit-linear-gradient(center top, #424F5A, #6A7B86);
+	background-image: linear-gradient(center top, #424F5A, #6A7B86);
+}
+
+	.navbar .brand,
+	.navbar .nav > li > a { color: #F6F4EC; }
+
+	.navbar .nav .active > a,
+	.navbar .nav .active > a:hover { background-color: #0095DD; }
+
+
+/* Page */
+.subhead { padding: 20px 0; }
+	.subhead .nav { margin: 0; }
+
+.page-header { border-bottom-color: #afafaf; }
+
+
+/* Modules */
+.hero-unit {
+	padding: 45px;
+	border-radius: 4px;
+	box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+}
+	.hero-unit h1 { letter-spacing: -3px; line-height: 1.5; }
+
+.alert { border-color: #cec9ae; }
